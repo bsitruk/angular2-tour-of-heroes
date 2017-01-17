@@ -13,4 +13,9 @@ export class HeroService {
             setTimeout(() => resolve(HEROES), 2000);
         });
     }
+
+    async getHero(id: number): Promise<Hero> {
+        const heroes = await this.getHeroes();
+        return heroes.find(hero => hero.id === id);
+    }
 }
